@@ -1,0 +1,137 @@
+---
+title: Changelog
+description: Stay updated with the latest releases, new features, and improvements in Roman Rudakov Documentation.
+---
+
+## Changelog Overview
+
+Roman Rudakov Documentation releases updates regularly to enhance your documentation experience. You receive new features for better organization, performance improvements, and bug fixes. Check this page for the latest changes and migration instructions.
+
+<Callout kind="info">
+  Enable notifications in your account settings to get email alerts for major releases.
+</Callout>
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added real-time collaboration for shared documentation spaces
+- Introduced customizable themes with your brand color `#3B82F6`
+
+## Improvements
+
+- Enhanced search with fuzzy matching for faster results
+- Optimized page load times by `>30%`
+
+## Bug Fixes
+
+- Fixed sidebar navigation collapse on mobile devices
+- Resolved export to PDF formatting issues
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Integrated version history with diff viewer
+- Added API endpoints for programmatic doc management
+
+## Bug Fixes
+
+- Corrected image upload failures in private spaces
+- Patched authentication token refresh loops
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## New Features
+
+- Core documentation editor with Markdown and MDX support
+- Project organization with spaces and folders
+
+## Breaking Changes
+
+- Updated config format from YAML to JSON – see migration guide below
+
+</Update>
+
+## Upgrading Your Documentation Space
+
+Follow these steps to upgrade to the latest version safely.
+
+<Steps>
+  <Step title="Backup Your Space" icon="database">
+
+    Export your current documentation:
+
+````bash
+# Using CLI tool
+roman-docs export --space-id YOUR_SPACE_ID --output backup.json
+````
+
+  </Step>
+  <Step title="Update Configuration" icon="settings">
+
+    <CodeGroup tabs="JSON,YAML">
+````json
+{
+  "theme": {
+    "primaryColor": "#3B82F6"
+  },
+  "features": {
+    "collaboration": true
+  }
+}
+````
+````yaml
+theme:
+  primaryColor: "#3B82F6"
+features:
+  collaboration: true
+````
+    </CodeGroup>
+
+  </Step>
+  <Step title="Run Upgrade" icon="rocket">
+
+    Deploy the update:
+
+````bash
+roman-docs upgrade --version 1.2.0 --space-id YOUR_SPACE_ID
+````
+
+  </Step>
+</Steps>
+
+## Quick Links
+
+<Columns cols={3}>
+  <Card title="Introduction" icon="book-open" href="/introduction">
+    Get started with the basics.
+  </Card>
+  <Card title="Quickstart" icon="zap" href="/quickstart">
+    Set up your first space.
+  </Card>
+  <Card title="Customization" icon="settings" href="/configuration">
+    Tailor docs to your needs.
+  </Card>
+</Columns>
+
+<Expandable title="Detailed Migration Notes" default-open="false">
+
+For v1.0.0 to v1.2.0:
+
+1. Convert YAML configs to JSON using the provided CLI converter.
+2. Update any custom CSS to match new theme variables like `{primaryColor}`.
+3. Test collaboration features in a staging space first.
+
+| Old Config | New Config |
+|------------|------------|
+| `theme.color: blue` | `{"theme": {"primaryColor": "#3B82F6"}}` |
+| `search.enabled: true` | `{"features": {"search": true}}` |
+
+If you encounter issues, contact support with your space ID.
+
+</Expandable>

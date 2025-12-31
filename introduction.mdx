@@ -1,0 +1,111 @@
+---
+title: Introduction to Roman Rudakov Documentation
+description: Welcome to Roman Rudakov's documentation space, your go-to platform for organizing and managing project documentation with ease and efficiency.
+---
+
+## Overview
+
+Welcome to Roman Rudakov's documentation space. You get a centralized hub to organize, manage, and collaborate on all your project documentation. Build structured guides, API references, and changelogs effortlessly while keeping everything searchable and versioned.
+
+This platform empowers you to create professional docs without complexity. Focus on content while it handles rendering, navigation, and updates.
+
+## Key Features
+
+Discover the core capabilities that make Roman Rudakov Documentation stand out.
+
+<Columns cols={3}>
+  <Card title="Intuitive Editor" icon="edit-3" href="#editor">
+    Write in Markdown with live previews. Supports rich components like tabs and cards for interactive docs.
+  </Card>
+  <Card title="Version Control" icon="git-branch" href="#versioning">
+    Track changes automatically. Roll back versions and collaborate with teams seamlessly.
+  </Card>
+  <Card title="Advanced Search" icon="search" href="#search">
+    Full-text search across all docs. Find exactly what you need in seconds.
+  </Card>
+  <Card title="Custom Navigation" icon="menu" href="#navigation">
+    Build sidebars and breadcrumbs tailored to your projects.
+  </Card>
+</Columns>
+
+## Benefits for Project Teams
+
+You streamline workflows and reduce documentation overhead. Teams access up-to-date info instantly, cutting onboarding time by half. Maintain consistency across projects with reusable templates and components.
+
+Solo developers organize personal notes efficiently. Enterprises scale docs for multiple products without silos.
+
+<Callout kind="tip">
+  Start small: Create one doc page today and expand as your projects grow.
+</Callout>
+
+## Get Started in Minutes
+
+Follow these steps to set up your first documentation space.
+
+<Steps>
+  <Step title="Create Your Space" icon="plus">
+    Sign up at `https://romanrudakov.com/docs` and create a new documentation workspace.
+  </Step>
+  <Step title="Add Your First Page" icon="file-plus">
+    Click "New Page" and select `introduction.mdx`. Use the editor to add content.
+  </Step>
+  <Step title="Customize Navigation" icon="settings">
+    Edit the sidebar in workspace settings to organize pages like `/quickstart` and `/api`.
+  </Step>
+  <Step title="Publish and Share" icon="share-2">
+    Hit publish. Share the live URL with your team.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="Markdown,With Components">
+```markdown
+# My First Doc
+
+Welcome to your docs!
+
+- List item 1
+- List item 2
+```
+````jsx
+<Card title="Feature Card" icon="star">
+  Interactive components enhance readability.
+</Card>
+
+<Callout kind="info">
+  Tip: Use components for better engagement.
+</Callout>
+````
+</CodeGroup>
+
+## Navigation and Structure Guide
+
+Explore how to navigate and structure your docs effectively.
+
+<Tabs>
+  <Tab title="Side Navigation" icon="sidebar">
+    Use the left sidebar for quick jumps. Organize into sections like "Guides" and "References".
+
+    Customize via YAML frontmatter and sidebar config files.
+  </Tab>
+  <Tab title="Search and Breadcrumbs" icon="navigation-2">
+    Top search bar finds pages instantly. Breadcrumbs show your location: Home > Guides > Quickstart.
+  </Tab>
+</Tabs>
+
+<Expandable title="Advanced Structure Tips" default-open="false">
+
+Structure pages hierarchically:
+
+- Use H2 (`##`) for main sections
+- Link internally with `/quickstart`
+- Embed components for rich content
+
+| Element       | Purpose                  |
+|---------------|--------------------------|
+| Frontmatter   | Sets title and metadata |
+| H2 Headings   | Main sections            |
+| Components    | Interactive elements     |
+
+</Expandable>
+
+Ready to dive deeper? Check [Quickstart](/quickstart) next.

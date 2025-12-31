@@ -1,0 +1,138 @@
+---
+title: Core Features
+description: Discover the essential tools in Roman Rudakov Documentation for effective project documentation management and collaboration.
+---
+
+## Overview
+
+Roman Rudakov Documentation provides powerful tools to streamline your project documentation. You create, organize, collaborate, and search with ease. These core features help teams maintain up-to-date docs without complexity.
+
+<Columns cols={2}>
+  <Card title="Document Creation" icon="edit-3" href="#document-creation">
+    Build rich pages using markdown and components.
+  </Card>
+  <Card title="Organization" icon="folder" href="#organization">
+    Structure content with folders and tags.
+  </Card>
+  <Card title="Collaboration" icon="users" href="#collaboration">
+    Share and work together seamlessly.
+  </Card>
+  <Card title="Search" icon="search" href="#search">
+    Find information quickly across your docs.
+  </Card>
+</Columns>
+
+## Document Creation and Editing
+
+Start new documents directly from the dashboard. You edit using a live preview markdown editor that supports MDX components for interactive content.
+
+<Steps>
+  <Step title="Create a New Page" icon="plus">
+    Click the `New Page` button. Choose a template or start blank.
+  </Step>
+  <Step title="Edit Content">
+    Use markdown syntax. Add components like `<Callout>` for notes.
+
+````markdown
+# My Feature Page
+
+<Callout kind="info">
+  This is an important note.
+</Callout>
+
+```javascript
+console.log("Hello, Roman Rudakov Documentation!");
+```
+````
+
+  </Step>
+  <Step title="Publish">
+    Save and publish. Changes go live instantly.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Enable version history to track edits and revert changes easily.
+</Callout>
+
+## Organization with Folders and Tags
+
+Keep your docs structured. Folders create hierarchies, while tags enable cross-referencing.
+
+<Tabs>
+  <Tab title="Folders" icon="folder">
+    Nest pages like a file system.
+
+    ```
+    /project-docs/
+      /api/
+        endpoints.mdx
+      /guides/
+        quickstart.mdx
+    ```
+  </Tab>
+  <Tab title="Tags" icon="tag">
+    Add tags like `api`, `guide` for filtering.
+
+    <CodeGroup tabs="Sidebar,Search">
+    ````markdown
+    ---
+    tags: ["api", "feature"]
+    ---
+    ````
+    ````
+    ````bash
+    Search: api feature
+    ````
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
+## Collaboration and Sharing Options
+
+Invite team members and share publicly or privately. Real-time editing keeps everyone aligned.
+
+<Expandable title="Sharing Methods" default-open="true">
+  - **Public links**: Generate shareable URLs.
+  - **Team invites**: Add users by email.
+  - **Permissions**: Set read/write access per folder.
+</Expandable>
+
+<Columns cols={3}>
+  <Card title="Invite Collaborator" icon="user-plus">
+    Send invites via email.
+  </Card>
+  <Card title="Live Editing" icon="edit-3">
+    See changes in real-time.
+  </Card>
+  <Card title="Comments" icon="message-circle">
+    Discuss directly on pages.
+  </Card>
+</Columns>
+
+## Search Functionality
+
+Powerful search finds content instantly. Use keywords, tags, or advanced filters.
+
+| Feature | Description |
+|---------|-------------|
+| Full-text | Matches across titles, content, code. |
+| Tag filter | Narrow by `api` or `guide`. |
+| Folders | Scope to specific areas. |
+| Regex | Advanced pattern matching. |
+
+<Callout kind="success">
+  Pro tip: Pin frequent searches to your dashboard for quick access.
+</Callout>
+
+## Next Steps
+
+Explore these features hands-on.
+
+<Card title="Quickstart" icon="zap" href="/quickstart">
+  Set up your first project in minutes.
+</Card>
+
+<Card title="Advanced Editing" icon="code" href="/advanced">
+  Master MDX components.
+</Card>

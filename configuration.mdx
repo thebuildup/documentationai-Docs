@@ -1,0 +1,148 @@
+---
+title: Configuration and Customization
+description: Learn how to tailor your documentation space with settings, branding, and user management to fit your team's needs.
+---
+
+## Overview
+
+Customize your Roman Rudakov documentation space to match your brand and team requirements. Adjust colors, manage users, configure preferences, and set up backups through the dashboard or API. Start with the UI for quick changes or use configuration files for advanced setups.
+
+<Columns cols={2}>
+  <Card title="UI Settings" icon="settings" href="#ui-configuration">
+    Modify options directly in the dashboard.
+  </Card>
+  <Card title="API Configuration" icon="code" href="#api-configuration">
+    Programmatically update settings via API calls.
+  </Card>
+</Columns>
+
+## Branding with Custom Colors
+
+Apply your brand identity by setting custom colors. Use the primary color `#3B82F6` as shown in your product information.
+
+<Steps>
+  <Step title="Access Branding Panel" icon="palette">
+    Navigate to **Space Settings > Branding** in the dashboard.
+  </Step>
+  <Step title="Update Primary Color">
+    Enter your hex code, such as `#3B82F6`, in the Primary Color field.
+  </Step>
+  <Step title="Preview and Save">
+    Preview changes live, then click **Save Branding**.
+  </Step>
+</Steps>
+
+For programmatic updates, configure a `config.json` file:
+
+<CodeGroup tabs="JSON,YAML">
+  ```json
+  {
+    "branding": {
+      "primaryColor": "#3B82F6",
+      "secondaryColor": "#1E40AF"
+    }
+  }
+  ```
+  ```yaml
+  branding:
+    primaryColor: "#3B82F6"
+    secondaryColor: "#1E40AF"
+  ```
+</CodeGroup>
+
+<Callout kind="tip">
+  Test colors in different themes to ensure readability. Use tools like contrast checkers for accessibility.
+</Callout>
+
+<ParamField path="branding.primaryColor" param-type="string" required="true">
+  Hex color code for your primary brand color, e.g., `#3B82F6`.
+</ParamField>
+
+## User Roles and Permissions
+
+Define roles like Admin, Editor, and Viewer to control access.
+
+<Tabs>
+  <Tab title="Admin" icon="shield">
+    Full access: Edit content, manage users, configure spaces.
+  </Tab>
+  <Tab title="Editor" icon="edit-3">
+    Edit documents and settings, but cannot delete spaces.
+  </Tab>
+  <Tab title="Viewer" icon="eye">
+    Read-only access to documentation.
+  </Tab>
+</Tabs>
+
+Assign roles via the API:
+
+```javascript
+await fetch('https://api.example.com/v1/spaces/{spaceId}/users', {
+  method: 'POST',
+  headers: { 'Authorization': 'Bearer YOUR_TOKEN' },
+  body: JSON.stringify({
+    userId: 'user-123',
+    role: 'editor'
+  })
+});
+```
+
+## Space Settings and Preferences
+
+Tailor notifications, default views, and integrations.
+
+<Expandable title="Advanced Preferences" default-open="false">
+  Enable email notifications and set default page layouts.
+
+  ```json
+  {
+    "preferences": {
+      "notifications": { "email": true },
+      "defaultView": "grid"
+    }
+  }
+  ```
+</Expandable>
+
+## Backup and Export Configurations
+
+Schedule automatic backups and export formats.
+
+| Option       | Description                          | Frequency Options     |
+|--------------|--------------------------------------|-----------------------|
+| Daily Backup | Full space snapshot to S3            | Daily, Weekly         |
+| Export      | PDF, Markdown, HTML bundles          | Manual, Scheduled     |
+
+<Callout kind="alert">
+  Enable backups before major changes. Exports include all versions.
+</Callout>
+
+Use the API for exports:
+
+<Request tabs="cURL,JavaScript">
+  ```bash
+  curl -X POST https://api.example.com/v1/spaces/{spaceId}/export \
+    -H "Authorization: Bearer YOUR_TOKEN" \
+    -d '{"format": "markdown"}'
+  ```
+  ```javascript
+  const response = await fetch(`https://api.example.com/v1/spaces/${spaceId}/export`, {
+    method: 'POST',
+    headers: { 'Authorization': `Bearer ${YOUR_TOKEN}` },
+    body: JSON.stringify({ format: 'markdown' })
+  });
+  ```
+</Request>
+
+<Response tabs="200">
+  ```json
+  {
+    "status": "success",
+    "downloadUrl": "https://api.example.com/downloads/export-123.zip"
+  }
+  ```
+</Response>
+
+<ParamField header="Authorization" param-type="string" required="true">
+  Bearer token for authentication.
+</ParamField>
